@@ -2,10 +2,16 @@ import type { FC, PropsWithChildren } from 'react';
 import { Header } from '../header/Header';
 import './Page.scss';
 
-export const Page: FC<PropsWithChildren> = ({ children }) => {
+export type Page = 'Title' | 'Life' | 'Works' | 'Awards';
+
+type Props = {
+  page: Page;
+};
+  
+export const Page: FC<PropsWithChildren<Props>> = ({ page, children }) => {
   return (
     <section className='page'>
-      <Header/>
+      <Header page={page} />
       {children}
     </section>
   );

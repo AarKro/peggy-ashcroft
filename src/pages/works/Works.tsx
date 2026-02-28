@@ -3,7 +3,7 @@ import './Works.scss';
 
 export const Works = () => {
   return (
-    <Page>
+    <Page page='Works'>
       <div>works</div>
     </Page>
   );

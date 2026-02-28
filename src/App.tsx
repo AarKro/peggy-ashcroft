@@ -5,7 +5,6 @@ import { Works } from './pages/works/Works';
 import './App.scss';
 
 export const App = () => {
-  // todo: create page and add it here
   return (
     <>
       <Title />

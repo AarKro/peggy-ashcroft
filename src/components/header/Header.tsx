@@ -1,29 +1,30 @@
-import { useState } from 'react';
+import { type FC } from 'react';
 import { useDesktopLayout } from '../../hooks/useDesktopLayout';
+import type { Page } from '../page/Page';
 import './Header.scss';
 
-type Section = 'Title' | 'Life' | 'Works' | 'Awards';
+type Props = {
+  page: Page;
+};
 
-export const Header = () => {
-  const [currentSection, setCurrentSection] = useState<Section>('Title');
+export const Header: FC<Props> = ({ page }) => {
   const isDesktop = useDesktopLayout();
 
   // hide header on title page
-  // if (currentSection === 'Title') {
-  //   return;
-  // }
+  if (page === 'Title') {
+    return;
+  }
 
   if (isDesktop)  {
     return (
       <header className='header'>
-        Desktop
       </header>
     );
   }
 
   return (
     <header className='header'>
-      <h1 className='header__title'>{currentSection}</h1>
+      <h1 className='header__title'>{page}</h1>
     </header>
   );
 }
