@@ -13,6 +13,16 @@
     justify-content: end;
   }
 
+  &__nav {
+    display: flex;
+    gap: 72px;
+
+    &-item {
+      @include typo-h2;
+      color: $color-ivory;
+    }
+  }
+
   &__title {
     @include typo-hero;
     color: $color-ivory;

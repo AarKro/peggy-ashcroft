@@ -3,8 +3,8 @@ import './Awards.scss';
 
 export const Awards = () => {
   return (
-    <Page page='Awards' classNames='awards'>
-      <div>awards</div>
+    <Page page='Awards'>
+      <h1>awards</h1>
     </Page>
   );
 };

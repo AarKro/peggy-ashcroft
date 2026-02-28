@@ -3,8 +3,8 @@ import './Life.scss';
 
 export const Life = () => {
   return (
-    <Page page='Life' classNames='life'>
-      <div>life</div>
+    <Page page='Life'>
+      <h1>life</h1>
     </Page>
   );
 };

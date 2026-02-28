@@ -19,6 +19,11 @@ export const Header: FC<Props> = ({ page }) => {
   if (isDesktop)  {
     return (
       <header className='header'>
+        <nav className='header__nav'>
+          <a href="#Life" className='header__nav-item'>Life</a>
+          <a href="#Works" className='header__nav-item'>Works</a>
+          <a href="#Awards" className='header__nav-item'>Awards</a>
+        </nav>
       </header>
     );
   }
