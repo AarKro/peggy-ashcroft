@@ -6,11 +6,12 @@ export type Page = 'Title' | 'Life' | 'Works' | 'Awards';
 
 type Props = {
   page: Page;
+  classNames?: string;
 };
   
-export const Page: FC<PropsWithChildren<Props>> = ({ page, children }) => {
+export const Page: FC<PropsWithChildren<Props>> = ({ page, classNames, children }) => {
   return (
-    <section className='page'>
+    <section className={`page ${classNames}`}>
       <Header page={page} />
       {children}
     </section>

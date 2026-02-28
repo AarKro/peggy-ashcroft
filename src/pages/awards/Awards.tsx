@@ -3,7 +3,7 @@ import './Awards.scss';
 
 export const Awards = () => {
   return (
-    <Page page='Awards'>
+    <Page page='Awards' classNames='awards'>
       <div>awards</div>
     </Page>
   );

@@ -3,9 +3,9 @@
 .page {
   min-height: 100vh;
 
-  padding: 28px;
+  padding: 0 28px;
 
   @include media-desktop {
-    padding: 48px;
+    padding: 0 48px;
   }
 }
