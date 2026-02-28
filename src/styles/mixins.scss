@@ -1,0 +1,68 @@
+@use './variables' as *;
+
+@mixin media-desktop() {
+  @media (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+// typography
+@mixin typo-hero {
+  // base
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  font-style: italic;
+
+  // mobile
+  font-size: 4rem;
+
+  // desktop
+  @include media-desktop {
+    font-size: 6rem;
+  }
+}
+
+@mixin typo-h1 {
+  // base
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  font-style: italic;
+
+  // mobile
+  font-size: 2rem;
+
+  // desktop
+  @include media-desktop {
+    font-size: 2.5rem;
+  }
+}
+
+@mixin typo-h2 {
+  // base
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: bold;
+  font-style: italic;
+
+  // mobile
+  font-size: 1.5rem;
+  
+  // desktop
+  @include media-desktop {
+    font-size: 2rem;
+  }
+}
+
+@mixin typo-p {
+  // base
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+
+  // mobile
+  font-size: 1rem;
+  
+  // desktop
+  @include media-desktop {
+    font-size: 1.25rem;
+  }
+}

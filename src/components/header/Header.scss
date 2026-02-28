@@ -1,0 +1,15 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.header {
+  height: 90px;
+
+  @include media-desktop {
+    height: 120px;
+  }
+
+  &__title {
+    @include typo-hero;
+    color: $color-ivory;
+  }
+}
