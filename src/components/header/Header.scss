@@ -2,14 +2,23 @@
 @use '../../styles/variables' as *;
 
 .header {
+  display: flex;
+  align-items: center;
+  
   height: 90px;
+  justify-content: space-between;
 
   @include media-desktop {
     height: 120px;
+    justify-content: end;
   }
 
   &__title {
     @include typo-hero;
     color: $color-ivory;
+  }
+
+  &__burger > svg {
+    width: 36px;
   }
 }

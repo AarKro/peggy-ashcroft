@@ -1,6 +1,7 @@
 import { type FC } from 'react';
 import { useDesktopLayout } from '../../hooks/useDesktopLayout';
 import type { Page } from '../page/Page';
+import Burger from '../../assets/icons/burger.svg';
 import './Header.scss';
 
 type Props = {
@@ -25,6 +26,9 @@ export const Header: FC<Props> = ({ page }) => {
   return (
     <header className='header'>
       <h1 className='header__title'>{page}</h1>
+      <div className='header__burger'>
+        <Burger />
+      </div>
     </header>
   );
 }
