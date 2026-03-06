@@ -1,4 +1,5 @@
 @use './styles/mixins.scss' as *;
+@use './styles/variables.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 * {
@@ -15,6 +16,11 @@ body {
 
 h1 {
   @include typo-h1;
+  margin-left: -5px; // visual adjustment to center text better
+
+  @include media-desktop {
+    margin-left: -10px; // visual adjustment to center text better
+  }
 }
 
 h2 {
@@ -23,4 +29,8 @@ h2 {
 
 p {
   @include typo-p;
+}
+
+a {
+  color: $color-link-blue;
 }

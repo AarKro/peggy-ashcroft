@@ -1,0 +1,19 @@
+@use '../../styles/mixins.scss' as *;
+
+.movie-poster {
+  &__text {
+    margin-bottom: 32px;
+
+    @include media-desktop {
+      margin-bottom: 42px;
+    }
+  }
+
+  &__image {
+    height: 400px;
+
+    @include media-desktop {
+      height: 530px;
+    }
+  }
+}

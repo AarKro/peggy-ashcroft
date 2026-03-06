@@ -1,5 +1,36 @@
 @use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as *;
 
 #Works {
   background-color: $color-black;
+}
+
+.works {
+  padding: 28px 0;
+
+  @include media-desktop {
+    padding: 48px 0;
+  }
+
+  &__carousell {
+    display: flex;
+    gap: 32px;
+    overflow-x: scroll;
+    margin-inline: -28px;
+    padding-inline: 28px;
+
+    @include media-desktop {
+      gap: 48px;
+      margin-inline: -72px;
+      padding-inline: 72px;
+    }
+  }
+
+  &__text {
+    padding-top: 28px;
+
+    @include media-desktop {
+      padding-top: 48px;
+    }
+  }
 }
