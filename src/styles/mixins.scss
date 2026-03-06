@@ -7,12 +7,13 @@
 }
 
 // typography
-@mixin typo-hero {
+@mixin typo-h1 {
   // base
   font-family: 'Playfair Display', serif;
   font-weight: bold;
   font-style: italic;
   text-decoration: none;
+  color: $color-ivory;
 
   // mobile
   font-size: 4rem;
@@ -23,28 +24,13 @@
   }
 }
 
-@mixin typo-h1 {
-  // base
-  font-family: 'Playfair Display', serif;
-  font-weight: bold;
-  font-style: italic;
-  text-decoration: none;
-
-  // mobile
-  font-size: 2rem;
-
-  // desktop
-  @include media-desktop {
-    font-size: 2.5rem;
-  }
-}
-
 @mixin typo-h2 {
   // base
   font-family: 'Libre Franklin', sans-serif;
   font-weight: bold;
   font-style: italic;
   text-decoration: none;
+  color: $color-ivory;
 
   // mobile
   font-size: 1.5rem;
@@ -61,6 +47,7 @@
   font-weight: normal;
   font-style: normal;
   text-decoration: none;
+  color: $color-ivory;
 
   // mobile
   font-size: 1rem;

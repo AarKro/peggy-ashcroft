@@ -4,7 +4,7 @@ import './Title.scss';
 export const Title = () => {
   return (
     <Page page='Title'>
-      <h1>title</h1>
+      <h1>Title</h1>
     </Page>
   );
 };

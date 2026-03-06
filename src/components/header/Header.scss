@@ -19,13 +19,7 @@
 
     &-item {
       @include typo-h2;
-      color: $color-ivory;
     }
-  }
-
-  &__title {
-    @include typo-hero;
-    color: $color-ivory;
   }
 
   &__burger > svg {

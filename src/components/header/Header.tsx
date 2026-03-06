@@ -30,7 +30,7 @@ export const Header: FC<Props> = ({ page }) => {
 
   return (
     <header className='header'>
-      <h1 className='header__title'>{page}</h1>
+      <h1>{page}</h1>
       <div className='header__burger'>
         <Burger />
       </div>

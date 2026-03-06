@@ -16,15 +16,12 @@ body {
 
 h1 {
   @include typo-h1;
-  color: $color-ivory;
 }
 
 h2 {
   @include typo-h2;
-  color: $color-ivory;
 }
 
 p {
   @include typo-p;
-  color: $color-ivory;
 }

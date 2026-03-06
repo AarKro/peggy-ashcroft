@@ -1,10 +1,13 @@
+import { useDesktopLayout } from '../../hooks/useDesktopLayout';
 import { Page } from '../../components/page/Page';
 import './Awards.scss';
 
 export const Awards = () => {
+  const isDesktop = useDesktopLayout();
+
   return (
     <Page page='Awards'>
-      <h1>awards</h1>
+      {isDesktop && <h1>Awards</h1>}
     </Page>
   );
 };
