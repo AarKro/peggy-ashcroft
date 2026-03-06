@@ -1,4 +1,4 @@
-import { useState, type FC } from 'react';
+import { useRef, useState, type FC } from 'react';
 import { useDesktopLayout } from '../../hooks/useDesktopLayout';
 import type { Page } from '../page/Page';
 import { BurgerMenu } from '../burger-menu/BurgerMenu';
@@ -10,14 +10,27 @@ type Props = {
 
 export const Header: FC<Props> = ({ page }) => {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
+  const savedScrollY = useRef<number>(0);
   const isDesktop = useDesktopLayout();
 
   const onNavigation = () => {
     setIsBurgerMenuOpen(false);
+    document.body.style.overflow = 'auto';
   }
 
   const onBurgerClick = () => {
-    setIsBurgerMenuOpen((prev) => !prev);
+    if (isBurgerMenuOpen) {
+      // closing: restore saved scroll position
+      setIsBurgerMenuOpen(false);
+      document.body.style.overflow = 'auto';
+      window.scrollTo({ top: savedScrollY.current });
+    } else {
+      // opening: save current position, then scroll to anchor
+      savedScrollY.current = window.scrollY;
+      setIsBurgerMenuOpen(true);
+      document.body.style.overflow = 'hidden';
+      window.location.href = `#${page}`;
+    }
   }
 
   // hide header on title page

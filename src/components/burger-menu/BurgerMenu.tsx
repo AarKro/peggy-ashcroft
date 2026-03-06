@@ -1,5 +1,4 @@
 import { type FC } from 'react';
-import Cross from '../../assets/icons/cross.svg';
 import './BurgerMenu.scss';
 
 type Props = {
@@ -15,9 +14,6 @@ export const BurgerMenu: FC<Props> = ({ isOpen, onNavigation }) => {
         <a href="#Works" className='menu__nav-item' onClick={onNavigation}>Works</a>
         <a href="#Awards" className='menu__nav-item' onClick={onNavigation}>Awards</a>
       </nav>
-      {/* <div className='menu__burger' onClick={onNavigation}>
-        <Cross />
-      </div> */}
     </section>
   );
 }
