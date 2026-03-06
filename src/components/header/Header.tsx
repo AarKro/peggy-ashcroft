@@ -29,7 +29,6 @@ export const Header: FC<Props> = ({ page }) => {
   if (isDesktop)  {
     return (
       <header className='header'>
-        <h1>{page}</h1>
         <nav className='header__nav'>
           <a href="#Life" className='header__nav-item'>Life</a>
           <a href="#Works" className='header__nav-item'>Works</a>

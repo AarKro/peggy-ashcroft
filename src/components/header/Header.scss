@@ -8,7 +8,7 @@
   justify-content: space-between;
 
   @include media-desktop {
-    height: 120px;
+    justify-content: end;
   }
 
   &__nav {

@@ -1,3 +1,4 @@
+import { useDesktopLayout } from '../../hooks/useDesktopLayout';
 import { Page } from '../../components/page/Page';
 import aPassageToIndia from '../../assets/images/a_passage_to_india.png';
 import theJewelInTheCrown from '../../assets/images/the_jewel_in_the_crown.png';
@@ -18,8 +19,11 @@ const MOVIES = [
 ];
 
 export const Works = () => {
+  const isDesktop = useDesktopLayout();
+
   return (
     <Page page='Works'>
+      {isDesktop && <h1>Works</h1>}
       <div className='works'>
         <div className='works__carousell'>
           {MOVIES.map((movie) => (
