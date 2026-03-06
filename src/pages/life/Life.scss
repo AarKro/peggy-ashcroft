@@ -7,18 +7,42 @@
 
 .life {
   &__timeline {
-    margin: 28px 0;
+    padding-top: 28px;
 
     @include media-desktop {
-      margin: 48px 0;
+      padding-top: 48px;
     }
   }
 
   &__entry {
-    margin: 28px 0;
+    display: flex;
+    gap: 28px;
+  }
+
+  &__node-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > svg {
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+    }
+  }
+
+
+  &__connector {
+    width: 10px;
+    flex: 1;
+    background-color: $color-black;
+  }
+
+  &__content {
+    padding-bottom: 28px;
 
     @include media-desktop {
-      margin: 48px 0;
+      padding-bottom: 48px;
     }
   }
 }
