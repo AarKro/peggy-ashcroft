@@ -1,7 +1,6 @@
 import { useState, type FC } from 'react';
 import { useDesktopLayout } from '../../hooks/useDesktopLayout';
 import type { Page } from '../page/Page';
-import Burger from '../../assets/icons/burger.svg';
 import { BurgerMenu } from '../burger-menu/BurgerMenu';
 import './Header.scss';
 
@@ -42,9 +41,11 @@ export const Header: FC<Props> = ({ page }) => {
     <>
       <header className='header'>
         <h1>{page}</h1>
-        <div className='header__burger' onClick={onBurgerClick}>
-          <Burger />
-        </div>
+        <button className={`header__burger${isBurgerMenuOpen ? ' header__burger--open' : ''}`} onClick={onBurgerClick}>
+          <span />
+          <span />
+          <span />
+        </button>
       </header>
       <BurgerMenu isOpen={isBurgerMenuOpen} onNavigation={onNavigation} />
     </>

@@ -11,6 +11,16 @@
   padding: 30px 28px 0 28px;
   background-color: $color-black;
   z-index: 999;
+  transition: 300ms ease-out;
+
+  &--open {
+    transform: translateY(0);
+    
+  }
+
+  &--closed {
+    transform: translateY(100%);
+  }
 
   &__nav {
     flex: 1;
