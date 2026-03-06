@@ -16,11 +16,6 @@ body {
 
 h1 {
   @include typo-h1;
-  margin-left: -5px; // visual adjustment to center text better
-
-  @include media-desktop {
-    margin-left: -10px; // visual adjustment to center text better
-  }
 }
 
 h2 {

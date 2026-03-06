@@ -23,7 +23,7 @@ export const Works = () => {
 
   return (
     <Page page='Works'>
-      {isDesktop && <h1>Works</h1>}
+      {isDesktop && <h1 className='works__title'>Works</h1>}
       <div className='works'>
         <div className='works__carousell'>
           {MOVIES.map((movie) => (
@@ -31,7 +31,7 @@ export const Works = () => {
           ))}
         </div>
         <p className='works__text'>
-          Check out Peggy Ashcrofts full <a target='_blank' href="https://en.wikipedia.org/wiki/Peggy_Ashcroft#Filmography">Filmography</a>
+          Check out her full <a target='_blank' href="https://en.wikipedia.org/wiki/Peggy_Ashcroft#Filmography">Filmography</a>
         </p>
       </div>
     </Page>
