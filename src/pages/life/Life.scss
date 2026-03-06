@@ -1,5 +1,24 @@
 @use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as *;
 
 #Life {
   background-color: $color-blue;
+}
+
+.life {
+  &__timeline {
+    margin: 28px 0;
+
+    @include media-desktop {
+      margin: 48px 0;
+    }
+  }
+
+  &__entry {
+    margin: 28px 0;
+
+    @include media-desktop {
+      margin: 48px 0;
+    }
+  }
 }
