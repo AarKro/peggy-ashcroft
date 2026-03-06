@@ -1,7 +1,8 @@
-import { type FC } from 'react';
+import { useState, type FC } from 'react';
 import { useDesktopLayout } from '../../hooks/useDesktopLayout';
 import type { Page } from '../page/Page';
 import Burger from '../../assets/icons/burger.svg';
+import { BurgerMenu } from '../burger-menu/BurgerMenu';
 import './Header.scss';
 
 type Props = {
@@ -9,7 +10,16 @@ type Props = {
 };
 
 export const Header: FC<Props> = ({ page }) => {
+  const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
   const isDesktop = useDesktopLayout();
+
+  const onNavigation = () => {
+    setIsBurgerMenuOpen(false);
+  }
+
+  const onBurgerClick = () => {
+    setIsBurgerMenuOpen((prev) => !prev);
+  }
 
   // hide header on title page
   if (page === 'Title') {
@@ -29,11 +39,14 @@ export const Header: FC<Props> = ({ page }) => {
   }
 
   return (
-    <header className='header'>
-      <h1>{page}</h1>
-      <div className='header__burger'>
-        <Burger />
-      </div>
-    </header>
+    <>
+      <header className='header'>
+        <h1>{page}</h1>
+        <div className='header__burger' onClick={onBurgerClick}>
+          <Burger />
+        </div>
+      </header>
+      <BurgerMenu isOpen={isBurgerMenuOpen} onNavigation={onNavigation} />
+    </>
   );
 }
