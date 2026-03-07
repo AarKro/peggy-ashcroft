@@ -15,9 +15,19 @@
   &__nav {
     display: flex;
     gap: 72px;
+    padding-bottom: 18px;
+    padding-left: 48px;
+    margin-right: -72px;
+    padding-right: 72px;
+    border-bottom: thin solid rgba($color-ivory, 1);
 
     &-item {
       @include typo-h2;
+      transition: color .1s;
+
+      &:hover {
+        color: $color-gold;
+      }
     }
   }
 
