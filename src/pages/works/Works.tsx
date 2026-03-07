@@ -31,9 +31,6 @@ export const Works = () => {
             <MoviePoster key={movie.title} title={movie.title} role={movie.role} img={movie.src} />
           ))}
         </ScrollOverflow>
-        <p className='works__text'>
-          Check out her full <a target='_blank' href="https://en.wikipedia.org/wiki/Peggy_Ashcroft#Filmography">Filmography</a>
-        </p>
       </div>
     </Page>
   );

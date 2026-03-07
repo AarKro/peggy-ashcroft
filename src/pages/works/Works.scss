@@ -36,17 +36,6 @@
     }
   }
 
-  &__text {
-    padding-top: 28px;
-    text-align: center;
-    margin-top: auto;
-    
-    @include media-desktop {
-      padding-top: 48px;
-      text-align: left;
-    }
-  }
-
   &__title {
     margin-left: -5px; // visual adjustment to center text better
 
