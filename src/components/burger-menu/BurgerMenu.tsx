@@ -10,6 +10,7 @@ export const BurgerMenu: FC<Props> = ({ isOpen, onNavigation }) => {
   return (
     <section className={`menu ${isOpen ? 'menu--open' : 'menu--closed'}`}>
       <nav className='menu__nav'>
+        <div className='menu__nav-section' />
         <div className='menu__nav-section'>
           <a href="#Life" className='menu__nav-item' onClick={onNavigation}>Life</a>
         </div>
@@ -19,6 +20,7 @@ export const BurgerMenu: FC<Props> = ({ isOpen, onNavigation }) => {
         <div className='menu__nav-section'>
           <a href="#Awards" className='menu__nav-item' onClick={onNavigation}>Awards</a>
         </div>
+        <div className='menu__nav-section' />
       </nav>
     </section>
   );

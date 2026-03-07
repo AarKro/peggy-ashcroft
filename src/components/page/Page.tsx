@@ -10,7 +10,7 @@ type Props = {
   
 export const Page: FC<PropsWithChildren<Props>> = ({ page, children }) => {
   return (
-    <section id={page} className='page'>
+    <section id={page} className='page' aria-label={page}>
       <Header page={page} />
       {children}
     </section>
