@@ -2,7 +2,7 @@
 @use '../../styles/mixins.scss' as *;
 
 #Life {
-  background-color: $color-blue;
+  background: linear-gradient(to bottom, $color-blue, mix($color-ivory, $color-blue, 25%));
 }
 
 .life {

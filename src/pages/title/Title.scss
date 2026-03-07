@@ -1,5 +1,5 @@
 @use '../../styles/variables.scss' as *;
 
 #Title {
-  background-color: $color-apre-ski;
+  background: linear-gradient(to bottom, $color-apre-ski, mix($color-ivory, $color-apre-ski, 25%));
 }
