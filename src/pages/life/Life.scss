@@ -1,8 +1,9 @@
+@use 'sass:color';
 @use '../../styles/variables.scss' as *;
 @use '../../styles/mixins.scss' as *;
 
 #Life {
-  background: linear-gradient(to bottom, $color-blue, mix($color-ivory, $color-blue, 25%));
+  background: linear-gradient(to bottom, $color-blue, color.mix($color-ivory, $color-blue, 25%));
 }
 
 .life {

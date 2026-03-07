@@ -1,8 +1,9 @@
+@use 'sass:color';
 @use '../../styles/variables.scss' as *;
 @use '../../styles/mixins.scss' as *;
 
 #Works {
-  background: linear-gradient(to bottom, $color-black, mix($color-ivory, $color-black, 25%));
+  background: linear-gradient(to bottom, $color-black, color.mix($color-ivory, $color-black, 25%));
 }
 
 .works {

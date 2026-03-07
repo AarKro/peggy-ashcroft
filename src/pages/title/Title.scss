@@ -1,5 +1,6 @@
+@use 'sass:color';
 @use '../../styles/variables.scss' as *;
 
 #Title {
-  background: linear-gradient(to bottom, $color-apre-ski, mix($color-ivory, $color-apre-ski, 25%));
+  background: linear-gradient(to bottom, $color-apre-ski, color.mix($color-ivory, $color-apre-ski, 25%));
 }

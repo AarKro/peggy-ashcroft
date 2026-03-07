@@ -1,8 +1,9 @@
+@use 'sass:color';
 @use '../../styles/variables.scss' as *;
 @use '../../styles/mixins.scss' as *;
 
 #Awards {
-  background: linear-gradient(to bottom, $color-red, mix($color-ivory, $color-red, 25%));
+  background: linear-gradient(to bottom, $color-red, color.mix($color-ivory, $color-red, 25%));
 }
 
 .awards {
