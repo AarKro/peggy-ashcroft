@@ -1,6 +1,7 @@
 import { useDesktopLayout } from '../../hooks/useDesktopLayout';
 import { Page } from '../../components/page/Page';
 import { AwardCard } from '../../components/award-card/AwardCard';
+import { Footer } from '../../components/footer/Footer';
 import './Awards.scss';
 
 export const Awards = () => {
@@ -21,6 +22,7 @@ export const Awards = () => {
         <p className='awards__text'>
           Check out all her <a target='_blank' href="https://en.wikipedia.org/wiki/Peggy_Ashcroft#Honours,_awards_and_memorials">Accolades</a>
         </p>
+        <Footer />
       </div>
     </Page>
   );

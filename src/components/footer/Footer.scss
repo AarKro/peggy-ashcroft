@@ -5,12 +5,12 @@
   display: flex;
   justify-content: space-between;
   background-color: $color-black;
-  position: sticky;
-  top: var(--sticky-top, 0);
   align-items: center;
   padding: 24px;
-  
+  margin-inline: -28px;
+
   @include media-desktop {
+    margin-inline: -72px;
     gap: 48px;
     justify-content: end;
     padding: 32px;
