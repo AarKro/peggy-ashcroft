@@ -19,16 +19,46 @@
     padding-left: 48px;
     margin-right: -72px;
     padding-right: 72px;
-    border-bottom: thin solid rgba($color-ivory, 1);
+
+    // using after element instead of border to animate it properly
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: $color-ivory;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 400ms ease-out;
+    }
 
     &-item {
       @include typo-h2;
-      transition: color .1s;
+      transition: color .1s, transform 300ms ease-out, opacity 300ms ease-out;
+      transform: translateX(40px);
+      opacity: 0;
+
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+          transition-delay: 0s, #{($i - 1) * 80}ms, #{($i - 1) * 80}ms;
+        }
+      }
 
       &:hover {
         color: $color-gold;
       }
     }
+  }
+
+  &--visible &__nav-item {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  &--visible &__nav::after {
+    transform: scaleX(1);
   }
 
   &__burger {

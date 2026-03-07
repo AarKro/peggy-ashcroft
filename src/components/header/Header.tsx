@@ -1,4 +1,4 @@
-import { useRef, useState, type FC, type MouseEvent } from 'react';
+import { useEffect, useRef, useState, type FC, type MouseEvent } from 'react';
 import { useDesktopLayout } from '../../hooks/useDesktopLayout';
 import type { Page } from '../page/Page';
 import { BurgerMenu } from '../burger-menu/BurgerMenu';
@@ -11,8 +11,22 @@ type Props = {
 
 export const Header: FC<Props> = ({ page }) => {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
   const savedScrollY = useRef<number>(0);
+  const headerRef = useRef<HTMLElement>(null);
   const isDesktop = useDesktopLayout();
+
+  useEffect(() => {
+    const section = document.getElementById(page);
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [page]);
 
   const handleNavClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -48,7 +62,7 @@ export const Header: FC<Props> = ({ page }) => {
 
   if (isDesktop)  {
     return (
-      <header className='header'>
+      <header className={`header${isVisible ? ' header--visible' : ''}`} ref={headerRef}>
         <nav className='header__nav'>
           <a href="#Life" className='header__nav-item' onClick={handleNavClick}>Life</a>
           <a href="#Works" className='header__nav-item' onClick={handleNavClick}>Works</a>
