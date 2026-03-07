@@ -1,4 +1,6 @@
+import type { FC } from 'react';
 import { useDesktopLayout } from '../../hooks/useDesktopLayout';
+import { useInView } from '../../hooks/useInView';
 import { Page } from '../../components/page/Page';
 import TimelineNode from '../../assets/icons/timeline-node.svg';
 import './Life.scss';
@@ -26,6 +28,23 @@ const entries = [
   },
 ];
 
+const LifeEntry: FC<{ title: string; text: string; isLast: boolean }> = ({ title, text, isLast }) => {
+  const { ref, isVisible } = useInView();
+
+  return (
+    <article className='life__entry' ref={ref}>
+      <div className='life__node-col'>
+        <TimelineNode />
+        {!isLast && <div className='life__connector' />}
+      </div>
+      <div className={`life__content${isVisible ? ' life__content--visible' : ''}`}>
+        <h2>{title}</h2>
+        <p>{text}</p>
+      </div>
+    </article>
+  );
+};
+
 export const Life = () => {
   const isDesktop = useDesktopLayout();
 
@@ -34,16 +53,12 @@ export const Life = () => {
       {isDesktop && <h1>Life</h1>}
       <div className='life__timeline'>
         {entries.map((entry, i) => (
-          <div className='life__entry' key={entry.title}>
-            <div className='life__node-col'>
-              <TimelineNode />
-              {i < entries.length - 1 && <div className='life__connector' />}
-            </div>
-            <div className='life__content'>
-              <h2>{entry.title}</h2>
-              <p>{entry.text}</p>
-            </div>
-          </div>
+          <LifeEntry
+            key={entry.title}
+            title={entry.title}
+            text={entry.text}
+            isLast={i === entries.length - 1}
+          />
         ))}
       </div>
     </Page>

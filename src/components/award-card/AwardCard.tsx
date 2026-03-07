@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { useInView } from '../../hooks/useInView';
 import './AwardCard.scss';
 
 type AwardEntry = {
@@ -17,8 +18,16 @@ type Props = {
 };
 
 export const AwardCard: FC<Props> = ({ count, category, name, years, detail, wide, entries }) => {
+  const { ref, isVisible } = useInView();
+
+  const classes = [
+    'award-card',
+    wide && 'award-card--wide',
+    isVisible && 'award-card--visible',
+  ].filter(Boolean).join(' ');
+
   return (
-    <article className={`award-card${wide ? ' award-card--wide' : ''}`}>
+    <article className={classes} ref={ref}>
       <div className='award-card__inner'>
         <div className='award-card__count-block'>
           <span className='award-card__count'>{count}</span>

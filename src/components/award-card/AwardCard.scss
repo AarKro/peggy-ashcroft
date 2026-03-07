@@ -5,6 +5,14 @@
   background: $color-black;
   border-radius: 3px;
   padding: 24px 28px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .3s ease-out, transform .3s ease-out;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   @include media-desktop {
     padding: 32px 36px;

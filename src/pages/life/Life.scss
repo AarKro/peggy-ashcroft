@@ -41,6 +41,14 @@
 
   &__content {
     padding-bottom: 28px;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .3s ease-out, transform .3s ease-out;
+
+    &--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     @include media-desktop {
       padding-bottom: 48px;

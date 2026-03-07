@@ -31,12 +31,12 @@
       background: $color-ivory;
       transform: scaleX(0);
       transform-origin: right;
-      transition: transform 400ms ease-out;
+      transition: transform .3s ease-out;
     }
 
     &-item {
       @include typo-h2;
-      transition: color .1s, transform 300ms ease-out, opacity 300ms ease-out;
+      transition: color .1s, transform .3s ease-out, opacity .3s ease-out;
       transform: translateX(40px);
       opacity: 0;
 
