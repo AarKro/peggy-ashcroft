@@ -1,7 +1,8 @@
-import { useRef, useState, type FC } from 'react';
+import { useRef, useState, type FC, type MouseEvent } from 'react';
 import { useDesktopLayout } from '../../hooks/useDesktopLayout';
 import type { Page } from '../page/Page';
 import { BurgerMenu } from '../burger-menu/BurgerMenu';
+import { scrollToSection } from '../../utils/scrollToSection';
 import './Header.scss';
 
 type Props = {
@@ -13,7 +14,14 @@ export const Header: FC<Props> = ({ page }) => {
   const savedScrollY = useRef<number>(0);
   const isDesktop = useDesktopLayout();
 
-  const onNavigation = () => {
+  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const id = e.currentTarget.getAttribute('href')?.slice(1);
+    if (id) scrollToSection(id);
+  };
+
+  const onNavigation = (e: MouseEvent<HTMLAnchorElement>) => {
+    handleNavClick(e);
     setIsBurgerMenuOpen(false);
     document.body.style.overflow = 'auto';
   }
@@ -23,13 +31,13 @@ export const Header: FC<Props> = ({ page }) => {
       // closing: restore saved scroll position
       setIsBurgerMenuOpen(false);
       document.body.style.overflow = 'auto';
-      window.scrollTo({ top: savedScrollY.current });
+      window.scrollTo({ top: savedScrollY.current, behavior: 'smooth' });
     } else {
       // opening: save current position, then scroll to anchor
       savedScrollY.current = window.scrollY;
       setIsBurgerMenuOpen(true);
       document.body.style.overflow = 'hidden';
-      window.location.href = `#${page}`;
+      scrollToSection(page, 300);
     }
   }
 
@@ -42,9 +50,9 @@ export const Header: FC<Props> = ({ page }) => {
     return (
       <header className='header'>
         <nav className='header__nav'>
-          <a href="#Life" className='header__nav-item'>Life</a>
-          <a href="#Works" className='header__nav-item'>Works</a>
-          <a href="#Awards" className='header__nav-item'>Awards</a>
+          <a href="#Life" className='header__nav-item' onClick={handleNavClick}>Life</a>
+          <a href="#Works" className='header__nav-item' onClick={handleNavClick}>Works</a>
+          <a href="#Awards" className='header__nav-item' onClick={handleNavClick}>Awards</a>
         </nav>
       </header>
     );

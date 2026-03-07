@@ -1,9 +1,9 @@
-import { type FC } from 'react';
+import { type FC, type MouseEvent } from 'react';
 import './BurgerMenu.scss';
 
 type Props = {
   isOpen: boolean;
-  onNavigation: () => void;
+  onNavigation: (e: MouseEvent<HTMLAnchorElement>) => void;
 }
 
 export const BurgerMenu: FC<Props> = ({ isOpen, onNavigation }) => {

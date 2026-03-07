@@ -4,6 +4,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: sticky;
+  top: var(--sticky-top, 0);
 
   padding: 0 28px;
 
