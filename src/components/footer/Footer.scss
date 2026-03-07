@@ -1,0 +1,40 @@
+@use '../../styles/mixins.scss' as *;
+@use '../../styles/variables.scss' as *;
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: $color-black;
+  align-items: center;
+  padding: 24px;
+  
+  @include media-desktop {
+    gap: 48px;
+    justify-content: end;
+    padding: 32px;
+  }
+
+  &__wikipedia {
+    @include typo-p;
+    color: $color-link-blue;
+    cursor: pointer;
+  }
+  
+  &__github {
+    @include typo-p;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+
+    & > svg {
+      width: 32px;
+      height: 32px;
+
+      @include media-desktop {
+        width: 38px;
+        height: 38px;
+      }
+    }
+  }
+}
