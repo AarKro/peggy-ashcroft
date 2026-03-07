@@ -8,16 +8,22 @@
 
 .life {
   &__timeline {
-    padding-top: 28px;
+    padding: 72px 0;
 
     @include media-desktop {
-      padding-top: 48px;
+      padding: 96px 0;
     }
   }
 
   &__entry {
     display: flex;
     gap: 28px;
+
+    @include media-desktop {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0;
+    }
   }
 
   &__node-col {
@@ -30,8 +36,12 @@
       height: 30px;
       flex-shrink: 0;
     }
-  }
 
+    @include media-desktop {
+      grid-column: 2;
+      padding: 0 28px;
+    }
+  }
 
   &__connector {
     width: 10px;
@@ -52,6 +62,15 @@
 
     @include media-desktop {
       padding-bottom: 48px;
+
+      .life__entry:nth-child(odd) & {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .life__entry:nth-child(even) & {
+        grid-column: 3;
+      }
     }
   }
 }
