@@ -20,6 +20,7 @@
     @include typo-p;
     color: $color-link-blue;
     cursor: pointer;
+    text-decoration: underline;
   }
   
   &__github {
