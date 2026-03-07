@@ -11,19 +11,51 @@ export const Awards = () => {
     <Page page='Awards'>
       {isDesktop && <h1>Awards</h1>}
       <div className="awards">
-        {/* <h2 className='awards__subtitle'>11 Awards & 20 Nominations</h2> */}
         <div className='awards__cards'>
-          <AwardCard number='3' title='BAFTAs' />
-          <AwardCard number='1' title='Academy Awards' />
-          <AwardCard number='1' title='Golden Globe' />
-          <AwardCard number='1' title='Laurence Olivier' />
-          <AwardCard number='5' title='Other Awards' />
+          <AwardCard
+            count={3}
+            category='British Academy'
+            name='BAFTA Awards'
+            years={['1981', '1985', '1986']}
+            detail='Caught on a Train · The Jewel in the Crown · A Passage to India'
+          />
+          <AwardCard
+            count={1}
+            category='The Academy'
+            name='Academy Award'
+            years={['1985']}
+            detail='A Passage to India'
+          />
+          <AwardCard
+            count={1}
+            category='Hollywood Foreign Press'
+            name='Golden Globe'
+            years={['1985']}
+            detail='A Passage to India'
+          />
+          <AwardCard
+            count={1}
+            category='Society of London Theatre'
+            name='Laurence Olivier Award'
+            years={['1976']}
+            detail='Old World'
+          />
+          <AwardCard
+            count={5}
+            category='Additional Recognition'
+            name='Other Awards'
+            wide
+            entries={[
+              { award: 'Boston Society of Film Critics', year: 'Best Supporting Actress, 1984' },
+              { award: 'LA Film Critics Association', year: 'Best Supporting Actress, 1984' },
+              { award: 'National Board of Review', year: 'Best Actress, 1985' },
+              { award: 'NY Film Critics Circle', year: 'Best Actress, 1985' },
+              { award: 'Venice Film Festival', year: 'Volpi Cup, 1989' },
+            ]}
+          />
         </div>
-        <p className='awards__text'>
-          Check out all her <a target='_blank' href="https://en.wikipedia.org/wiki/Peggy_Ashcroft#Honours,_awards_and_memorials">Accolades</a>
-        </p>
-        <Footer />
       </div>
+      <Footer />
     </Page>
   );
 };

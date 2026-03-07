@@ -41,6 +41,22 @@
   }
 }
 
+@mixin typo-label {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  color: $color-ivory;
+
+  font-size: 0.5625rem;
+
+  @include media-desktop {
+    font-size: 0.625rem;
+  }
+}
+
 @mixin typo-p {
   // base
   font-family: 'Libre Franklin', sans-serif;

@@ -7,38 +7,28 @@
 }
 
 .awards {
-  padding: 28px 0 0 0;
+  padding: 28px 0;
   display: flex;
   flex-direction: column;
-  flex: 1;
 
   @include media-desktop {
-    padding: 72px 0 0 0;
+    padding: 72px 0;
   }
 
   &__cards {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 18px;
 
     @include media-desktop {
-      display: flex;
-      flex-direction: row;
-      gap: 28px;
-      overflow-x: scroll;
-      margin-inline: -72px;
-      padding-inline: 72px;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
-  }
 
-  &__text {
-    text-align: center;
-    margin-top: auto;
-    padding: 28px 0;
-
-    @include media-desktop {
-      text-align: left;
-      padding: 48px 0;
+    .award-card--wide {
+      @include media-desktop {
+        grid-column: 1 / -1;
+      }
     }
   }
 }

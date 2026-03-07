@@ -7,6 +7,10 @@
     @include media-desktop {
       margin-bottom: 42px;
     }
+
+    & > p {
+      opacity: 0.8;
+    }
   }
 
   &__image {

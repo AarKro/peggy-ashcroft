@@ -2,33 +2,154 @@
 @use '../../styles/variables.scss' as *;
 
 .award-card {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  background-color: $color-black;
-  border-radius: 5px;
-  padding: 18px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  background: $color-black;
+  border-radius: 3px;
+  padding: 24px 28px;
 
   @include media-desktop {
-    width: 240px;
-    height: 240px;
-    padding: 24px;
+    padding: 32px 36px;
   }
 
-  &__title {
-    @include typo-h2;
-  }
-  
-  &__number {
-    @include typo-h1;
-    color: $color-gold;
-    text-align: right;
-    margin-top: -33px;
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 
     @include media-desktop {
-      margin-top: -53px;
+      gap: 28px;
     }
+  }
+
+  &__count-block {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__count {
+    @include typo-h1;
+    font-size: 3.25rem;
+    line-height: 1;
+    color: $color-gold;
+    letter-spacing: -0.03em;
+
+    @include media-desktop {
+      font-size: 4.5rem;
+    }
+  }
+
+  &__count-label {
+    @include typo-label;
+    color: $color-gold;
+    opacity: 0.7;
+    margin-top: 10px;
+  }
+
+  &__divider {
+    width: 1px;
+    height: 80px;
+    background: $color-gold;
+    flex-shrink: 0;
+  }
+
+  &__info {
+    flex: 1;
+  }
+
+  &__category {
+    @include typo-label;
+    color: $color-gold;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  &__name {
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  &__years {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  &__year-tag {
+    @include typo-p;
+    font-style: italic;
+    font-size: 0.8125rem;
+    color: rgba($color-ivory, 0.7);
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 2px;
+    padding: 2px 9px;
+    letter-spacing: 0.03em;
+  }
+
+  &__detail {
+    margin-top: 8px;
+    opacity: 0.8;
+  }
+
+  // Wide card variant
+  &--wide {
+    padding: 24px 32px;
+
+    @include media-desktop {
+      padding: 28px 40px;
+    }
+
+    .award-card__count {
+      font-size: 3rem;
+
+      @include media-desktop {
+        font-size: 4.25rem;
+      }
+    }
+
+    .award-card__inner {
+      gap: 24px;
+      flex-wrap: wrap;
+
+      @include media-desktop {
+        gap: 32px;
+        flex-wrap: nowrap;
+      }
+    }
+  }
+
+  // Entries for wide card
+  &__entries {
+    display: flex;
+    gap: 16px;
+    flex: 1;
+    flex-wrap: wrap;
+
+    @include media-desktop {
+      gap: 20px;
+    }
+  }
+
+  &__entry {
+    border-left: 1px solid rgba($color-gold, 0.2);
+    padding-left: 12px;
+
+    @include media-desktop {
+      padding-left: 16px;
+    }
+  }
+
+  &__entry-award {
+    @include typo-h2;
+    font-size: 0.875rem;
+    margin-bottom: 3px;
+    display: block;
+  }
+
+  &__entry-year {
+    @include typo-p;
+    font-size: 0.8125rem;
+    opacity: 0.8;
   }
 }
