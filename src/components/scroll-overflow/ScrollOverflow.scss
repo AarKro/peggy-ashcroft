@@ -12,6 +12,9 @@
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s;
+    // apply mask to make gradient fade out on the top, botom and side
+    mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
   }
 
   &::before {
