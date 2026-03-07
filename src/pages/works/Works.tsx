@@ -1,5 +1,6 @@
 import { useDesktopLayout } from '../../hooks/useDesktopLayout';
 import { Page } from '../../components/page/Page';
+import { ScrollOverflow } from '../../components/scroll-overflow/ScrollOverflow';
 import aPassageToIndia from '../../assets/images/a_passage_to_india.png';
 import theJewelInTheCrown from '../../assets/images/the_jewel_in_the_crown.png';
 import sundayBloodySunday from '../../assets/images/sunday_bloody_sundy.png';
@@ -25,11 +26,11 @@ export const Works = () => {
     <Page page='Works'>
       {isDesktop && <h1 className='works__title'>Works</h1>}
       <div className='works'>
-        <div className='works__carousell'>
+        <ScrollOverflow className='works__carousell'>
           {MOVIES.map((movie) => (
             <MoviePoster key={movie.title} title={movie.title} role={movie.role} img={movie.src} />
           ))}
-        </div>
+        </ScrollOverflow>
         <p className='works__text'>
           Check out her full <a target='_blank' href="https://en.wikipedia.org/wiki/Peggy_Ashcroft#Filmography">Filmography</a>
         </p>

@@ -9,22 +9,35 @@
   left: 0;
   display: flex;
   padding: 30px 28px 0 28px;
-  background-color: $color-black;
+  background-color: $color-apre-ski;
   z-index: 999;
   transition: 300ms ease-out;
 
-  &--open {
-    transform: translateX(0);
-  }
-
-  &--closed {
-    transform: translateX(100%);
-  }
-
   &__nav {
+    padding-top: 60px;
     flex: 1;
     display: flex;
     flex-direction: column;
+
+    &-section {
+      padding: 28px 0;
+      margin-inline: -28px;
+      padding-inline: 28px;
+      transition: transform 300ms ease-out;
+
+      &:nth-child(1) {
+        background-color: $color-blue;
+      }
+      
+      &:nth-child(2) {
+        background-color: $color-black;
+      }
+      
+      &:nth-child(3) {
+        background-color: $color-red;
+      }
+
+    }
 
     &-item {
       @include typo-h1;
@@ -34,4 +47,29 @@
   &__burger > svg {
     width: 36px;
   }
+}
+
+.menu--open {
+  transform: translateX(0);
+
+  & .menu__nav-section {
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{($i - 1) * 80}ms;
+        transform: tranxlateX(0);
+      }
+    }
+  }
+}
+
+.menu--closed {
+  transform: translateX(100%);
+
+  & .menu__nav-section {
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+          transition-delay: #{(3 - $i) * 80}ms;
+        }
+      }
+    }
 }

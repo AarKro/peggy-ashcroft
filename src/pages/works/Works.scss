@@ -15,16 +15,22 @@
     padding: 48px 0;
   }
 
+  > .scroll-overflow {
+    margin-inline: -28px;
+
+    @include media-desktop {
+      margin-inline: -72px;
+    }
+  }
+
   &__carousell {
     display: flex;
     gap: 32px;
     overflow-x: scroll;
-    margin-inline: -28px;
     padding-inline: 28px;
 
     @include media-desktop {
       gap: 48px;
-      margin-inline: -72px;
       padding-inline: 72px;
     }
   }
