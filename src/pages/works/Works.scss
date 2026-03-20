@@ -13,7 +13,7 @@
   flex: 1;
 
   @include media-desktop {
-    padding: 48px 0 96px 0;
+    padding: 48px 0 0 0;
   }
 
   > .scroll-overflow {
