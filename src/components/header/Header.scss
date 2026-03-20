@@ -27,6 +27,7 @@
 
       @for $i from 1 through 3 {
         &:nth-child(#{$i}) {
+          /* animate header items in reverse order */
           transition-delay: 0s, #{(80 * 3) - (($i - 1) * 80) }ms, #{(80 * 3) - (($i - 1) * 80) }ms;
         }
       }
