@@ -1,4 +1,4 @@
-const getSectionTop = (el: HTMLElement): number => {
+export const getSectionTop = (el: HTMLElement): number => {
   if (!el.parentElement) return 0;
   let top = 0;
   for (const child of Array.from(el.parentElement.children)) {

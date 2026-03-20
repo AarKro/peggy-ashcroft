@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState, type FC, type MouseEvent } from 'react';
+import { useRef, useState, type FC, type FocusEvent, type MouseEvent } from 'react';
 import { useDesktopLayout } from '../../hooks/useDesktopLayout';
 import type { Page } from '../page/Page';
 import { BurgerMenu } from '../burger-menu/BurgerMenu';
-import { scrollToSection } from '../../utils/scrollToSection';
+import { getSectionTop, scrollToSection } from '../../utils/scrollToSection';
 import './Header.scss';
 
 type Props = {
@@ -49,29 +49,24 @@ export const Header: FC<Props> = ({ page, activePage }) => {
     }
   }
 
-  // let keyboard users close the menu with Escape
-  useEffect(() => {
-    if (!isBurgerMenuOpen) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        closeBurgerMenu();
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [isBurgerMenuOpen]);
 
   // hide header on title page
   if (page === 'Title') {
     return null;
   }
 
+  // align section with viewport top when tabbing into a nav item
+  const handleNavFocus = (e: FocusEvent<HTMLElement>) => {
+    const section = e.currentTarget.closest('section');
+    if (!section) return;
+    const target = getSectionTop(section as HTMLElement);
+    window.scrollTo({ top: target, behavior: 'instant' });
+  };
+
   if (isDesktop)  {
     return (
       <header className={`header${isVisible ? ' header--visible' : ''}`}>
-        <nav className='header__nav'>
+        <nav className='header__nav' onFocus={handleNavFocus}>
           <a href="#Life" className='header__nav-item' onClick={handleNavClick}>Life</a>
           <a href="#Works" className='header__nav-item' onClick={handleNavClick}>Works</a>
           <a href="#Awards" className='header__nav-item' onClick={handleNavClick}>Awards</a>
