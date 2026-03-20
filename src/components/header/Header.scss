@@ -64,7 +64,8 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding: 10px;
+    box-sizing: content-box;
     z-index: 1000;
 
     span {

@@ -29,3 +29,9 @@ p {
 a {
   color: $color-link-blue;
 }
+
+// visible focus ring for keyboard navigation
+:focus-visible {
+  outline: 2px solid $color-gold;
+  outline-offset: 2px;
+}

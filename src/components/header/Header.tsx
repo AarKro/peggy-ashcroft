@@ -1,4 +1,4 @@
-import { useRef, useState, type FC, type MouseEvent } from 'react';
+import { useEffect, useRef, useState, type FC, type MouseEvent } from 'react';
 import { useDesktopLayout } from '../../hooks/useDesktopLayout';
 import type { Page } from '../page/Page';
 import { BurgerMenu } from '../burger-menu/BurgerMenu';
@@ -13,6 +13,7 @@ type Props = {
 export const Header: FC<Props> = ({ page, activePage }) => {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
   const savedScrollY = useRef<number>(0);
+  const burgerButtonRef = useRef<HTMLButtonElement>(null);
   const isDesktop = useDesktopLayout();
   const isVisible = activePage === page;
 
@@ -20,6 +21,13 @@ export const Header: FC<Props> = ({ page, activePage }) => {
     e.preventDefault();
     const id = e.currentTarget.getAttribute('href')?.slice(1);
     if (id) scrollToSection(id);
+  };
+
+  const closeBurgerMenu = () => {
+    setIsBurgerMenuOpen(false);
+    document.body.style.overflow = 'auto';
+    burgerButtonRef.current?.focus(); // return focus to trigger button
+    window.scrollTo({ top: savedScrollY.current, behavior: 'smooth' });
   };
 
   const onBurgerNavigation = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -31,9 +39,7 @@ export const Header: FC<Props> = ({ page, activePage }) => {
   const onBurgerClick = () => {
     if (isBurgerMenuOpen) {
       // closing: restore saved scroll position
-      setIsBurgerMenuOpen(false);
-      document.body.style.overflow = 'auto';
-      window.scrollTo({ top: savedScrollY.current, behavior: 'smooth' });
+      closeBurgerMenu();
     } else {
       // opening: save current position, then scroll to anchor
       savedScrollY.current = window.scrollY;
@@ -42,6 +48,20 @@ export const Header: FC<Props> = ({ page, activePage }) => {
       scrollToSection(page, 300);
     }
   }
+
+  // let keyboard users close the menu with Escape
+  useEffect(() => {
+    if (!isBurgerMenuOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeBurgerMenu();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isBurgerMenuOpen]);
 
   // hide header on title page
   if (page === 'Title') {
@@ -64,10 +84,17 @@ export const Header: FC<Props> = ({ page, activePage }) => {
     <>
       <header className={`header${isVisible ? ' header--visible' : ''}`}>
         <h1>{page}</h1>
-        <button className={`header__burger${isBurgerMenuOpen ? ' header__burger--open' : ''}`} onClick={onBurgerClick}>
-          <span />
-          <span />
-          <span />
+        <button
+          ref={burgerButtonRef}
+          className={`header__burger${isBurgerMenuOpen ? ' header__burger--open' : ''}`}
+          onClick={onBurgerClick}
+          aria-label="Menu"
+          aria-expanded={isBurgerMenuOpen}
+          aria-controls="burger-menu"
+        >
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
         </button>
       </header>
       <BurgerMenu isOpen={isBurgerMenuOpen} onNavigation={onBurgerNavigation} />

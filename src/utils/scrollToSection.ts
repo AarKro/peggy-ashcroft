@@ -30,7 +30,11 @@ export const scrollToSection = (id: string, scrollDuration = 600) => {
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / scrollDuration, 1);
     window.scrollTo({ top: start + distance * easeInOutCubic(progress) });
-    if (progress < 1) requestAnimationFrame(step);
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    } else {
+      el.focus({ preventScroll: true }); // move focus to target for screen readers
+    }
   };
 
   requestAnimationFrame(step);

@@ -14,7 +14,8 @@ export const Page: FC<PropsWithChildren<Props>> = ({ page, activePage, children 
   const stickyRef = useStickAfterScroll();
 
   return (
-    <section id={page} className='page' aria-label={page} ref={stickyRef}>
+    // tabIndex allows programmatic focus after scroll navigation
+    <section id={page} className='page' aria-label={page} ref={stickyRef} tabIndex={-1}>
       <Header page={page} activePage={activePage} />
       {children}
     </section>

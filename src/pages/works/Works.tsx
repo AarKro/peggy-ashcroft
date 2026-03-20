@@ -29,7 +29,7 @@ export const Works: FC<Props> = ({ activePage }) => {
     <Page page='Works' activePage={activePage}>
       {isDesktop && <h1 className='works__title'>Works</h1>}
       <div className='works'>
-        <ScrollOverflow className='works__carousel'>
+        <ScrollOverflow className='works__carousel' ariaLabel="Movie posters carousel">
           {MOVIES.map((movie) => (
             <MoviePoster key={movie.title} title={movie.title} role={movie.role} img={movie.src} />
           ))}

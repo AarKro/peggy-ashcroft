@@ -34,7 +34,7 @@ const LifeEntry: FC<{ title: string; text: string; isLast: boolean }> = ({ title
   return (
     <article className='life__entry' ref={ref}>
       <div className='life__node-col'>
-        <TimelineNode />
+        <TimelineNode aria-hidden="true" />
         {!isLast && <div className='life__connector' />}
       </div>
       <div className={`life__content${isVisible ? ' life__content--visible' : ''}`}>
