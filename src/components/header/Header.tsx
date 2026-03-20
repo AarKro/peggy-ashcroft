@@ -14,7 +14,7 @@ export const Header: FC<Props> = ({ page }) => {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
   const savedScrollY = useRef<number>(0);
   const isDesktop = useDesktopLayout();
-  const { isVisible } = useInView(0.3, `#${page}`);
+  const { isVisible } = useInView(0.2, `#${page}`);
 
   const handleNavClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();

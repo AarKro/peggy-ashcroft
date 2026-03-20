@@ -8,6 +8,8 @@
   opacity: 0;
   transform: translateY(24px);
   transition: opacity .3s ease-out, transform .3s ease-out;
+  display: flex;
+  align-items: center;
 
   &--visible {
     opacity: 1;

@@ -16,23 +16,8 @@
     display: flex;
     gap: 72px;
     padding-bottom: 18px;
-    padding-left: 48px;
-    margin-right: -72px;
-    padding-right: 72px;
-
-    // using after element instead of border to animate it properly
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: $color-ivory;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform .3s ease-out;
-    }
+    padding-left: 72px;
+    padding-top: 48px;
 
     &-item {
       @include typo-h2;
@@ -42,7 +27,7 @@
 
       @for $i from 1 through 3 {
         &:nth-child(#{$i}) {
-          transition-delay: 0s, #{($i - 1) * 80}ms, #{($i - 1) * 80}ms;
+          transition-delay: 0s, #{(80 * 3) - (($i - 1) * 80) }ms, #{(80 * 3) - (($i - 1) * 80) }ms;
         }
       }
 

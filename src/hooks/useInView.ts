@@ -9,7 +9,12 @@ export const useInView = (threshold = 0.3, selector?: string) => {
     if (!el) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
       { threshold }
     );
     observer.observe(el);
