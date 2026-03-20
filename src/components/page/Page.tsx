@@ -7,14 +7,15 @@ export type Page = 'Title' | 'Life' | 'Works' | 'Awards';
 
 type Props = {
   page: Page;
+  activePage: Page;
 };
 
-export const Page: FC<PropsWithChildren<Props>> = ({ page, children }) => {
+export const Page: FC<PropsWithChildren<Props>> = ({ page, activePage, children }) => {
   const stickyRef = useStickAfterScroll();
 
   return (
     <section id={page} className='page' aria-label={page} ref={stickyRef}>
-      <Header page={page} />
+      <Header page={page} activePage={activePage} />
       {children}
     </section>
   );

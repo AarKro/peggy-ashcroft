@@ -1,14 +1,17 @@
+import type { FC } from 'react';
 import { useDesktopLayout } from '../../hooks/useDesktopLayout';
-import { Page } from '../../components/page/Page';
+import { Page, type Page as PageType } from '../../components/page/Page';
 import { AwardCard } from '../../components/award-card/AwardCard';
 import { Footer } from '../../components/footer/Footer';
 import './Awards.scss';
 
-export const Awards = () => {
+type Props = { activePage: PageType };
+
+export const Awards: FC<Props> = ({ activePage }) => {
   const isDesktop = useDesktopLayout();
 
   return (
-    <Page page='Awards'>
+    <Page page='Awards' activePage={activePage}>
       {isDesktop && <h1>Awards</h1>}
       <div className="awards">
         <div className='awards__cards'>

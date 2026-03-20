@@ -1,5 +1,6 @@
+import type { FC } from 'react';
 import { useDesktopLayout } from '../../hooks/useDesktopLayout';
-import { Page } from '../../components/page/Page';
+import { Page, type Page as PageType } from '../../components/page/Page';
 import { ScrollOverflow } from '../../components/scroll-overflow/ScrollOverflow';
 import aPassageToIndia from '../../assets/images/a_passage_to_india.png';
 import theJewelInTheCrown from '../../assets/images/the_jewel_in_the_crown.png';
@@ -19,11 +20,13 @@ const MOVIES = [
   { title: 'Secret Ceremony', role: 'as Hannah', src: secretCeremony },
 ];
 
-export const Works = () => {
+type Props = { activePage: PageType };
+
+export const Works: FC<Props> = ({ activePage }) => {
   const isDesktop = useDesktopLayout();
 
   return (
-    <Page page='Works'>
+    <Page page='Works' activePage={activePage}>
       {isDesktop && <h1 className='works__title'>Works</h1>}
       <div className='works'>
         <ScrollOverflow className='works__carousell'>

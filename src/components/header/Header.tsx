@@ -1,6 +1,5 @@
 import { useRef, useState, type FC, type MouseEvent } from 'react';
 import { useDesktopLayout } from '../../hooks/useDesktopLayout';
-import { useInView } from '../../hooks/useInView';
 import type { Page } from '../page/Page';
 import { BurgerMenu } from '../burger-menu/BurgerMenu';
 import { scrollToSection } from '../../utils/scrollToSection';
@@ -8,13 +7,14 @@ import './Header.scss';
 
 type Props = {
   page: Page;
+  activePage: Page;
 };
 
-export const Header: FC<Props> = ({ page }) => {
+export const Header: FC<Props> = ({ page, activePage }) => {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
   const savedScrollY = useRef<number>(0);
   const isDesktop = useDesktopLayout();
-  const { isVisible } = useInView(0.2, `#${page}`);
+  const isVisible = activePage === page;
 
   const handleNavClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();

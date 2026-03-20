@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { useDesktopLayout } from '../../hooks/useDesktopLayout';
 import { useInView } from '../../hooks/useInView';
-import { Page } from '../../components/page/Page';
+import { Page, type Page as PageType } from '../../components/page/Page';
 import TimelineNode from '../../assets/icons/timeline-node.svg';
 import './Life.scss';
 
@@ -45,11 +45,13 @@ const LifeEntry: FC<{ title: string; text: string; isLast: boolean }> = ({ title
   );
 };
 
-export const Life = () => {
+type Props = { activePage: PageType };
+
+export const Life: FC<Props> = ({ activePage }) => {
   const isDesktop = useDesktopLayout();
 
   return (
-    <Page page='Life'>
+    <Page page='Life' activePage={activePage}>
       {isDesktop && <h1>Life</h1>}
       <div className='life__timeline'>
         {entries.map((entry, i) => (

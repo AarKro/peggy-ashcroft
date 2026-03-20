@@ -1,9 +1,12 @@
-import { Page } from '../../components/page/Page';
+import type { FC } from 'react';
+import { Page, type Page as PageType } from '../../components/page/Page';
 import './Title.scss';
 
-export const Title = () => {
+type Props = { activePage: PageType };
+
+export const Title: FC<Props> = ({ activePage }) => {
   return (
-    <Page page='Title'>
+    <Page page='Title' activePage={activePage}>
       <h1>Title</h1>
     </Page>
   );
