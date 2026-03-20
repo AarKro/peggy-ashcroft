@@ -14,7 +14,7 @@ export const MoviePoster: FC<Props> = ({ title, role, img }) => {
         <h2>{title}</h2>
         <p>{role}</p>
       </div>
-      <img className='movie-poster__image' src={img} alt={title} />
+      <img className='movie-poster__image' src={img} alt={title} loading='lazy' />
     </article>
   );
 }

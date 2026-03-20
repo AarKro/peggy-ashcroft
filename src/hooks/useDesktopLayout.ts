@@ -12,7 +12,7 @@ export const useDesktopLayout = () => {
     window.addEventListener("resize", updateMediaMatcher);
 
     return () => window.removeEventListener("resize", updateMediaMatcher);
-  });
+  }, []);
 
   return mediaMatcher.matches;
 }

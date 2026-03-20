@@ -22,7 +22,7 @@ export const Header: FC<Props> = ({ page, activePage }) => {
     if (id) scrollToSection(id);
   };
 
-  const onNavigation = (e: MouseEvent<HTMLAnchorElement>) => {
+  const onBurgerNavigation = (e: MouseEvent<HTMLAnchorElement>) => {
     handleNavClick(e);
     setIsBurgerMenuOpen(false);
     document.body.style.overflow = 'auto';
@@ -45,7 +45,7 @@ export const Header: FC<Props> = ({ page, activePage }) => {
 
   // hide header on title page
   if (page === 'Title') {
-    return;
+    return null;
   }
 
   if (isDesktop)  {
@@ -62,7 +62,7 @@ export const Header: FC<Props> = ({ page, activePage }) => {
 
   return (
     <>
-      <header className='header'>
+      <header className={`header${isVisible ? ' header--visible' : ''}`}>
         <h1>{page}</h1>
         <button className={`header__burger${isBurgerMenuOpen ? ' header__burger--open' : ''}`} onClick={onBurgerClick}>
           <span />
@@ -70,7 +70,7 @@ export const Header: FC<Props> = ({ page, activePage }) => {
           <span />
         </button>
       </header>
-      <BurgerMenu isOpen={isBurgerMenuOpen} onNavigation={onNavigation} />
+      <BurgerMenu isOpen={isBurgerMenuOpen} onNavigation={onBurgerNavigation} />
     </>
   );
 }

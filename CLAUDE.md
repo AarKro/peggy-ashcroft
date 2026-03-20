@@ -19,15 +19,22 @@ React 19 + TypeScript + Vite single-page app with SCSS styling. No routing — t
 
 **Key patterns:**
 - `Page` component (`src/components/page/Page.tsx`) wraps each section, providing the `<section>` element and a `Header`. The `Page` type union (`'Title' | 'Life' | 'Works' | 'Awards'`) is the shared type for page identity.
+- Page files import both the component and the type: `import { Page, type Page as PageType }` to disambiguate.
 - `Header` component adapts between mobile (burger menu + page title) and desktop (nav links) using the `useDesktopLayout` hook.
-- `useDesktopLayout` hook uses `window.matchMedia` to detect the desktop breakpoint (576px).
 - SVGs are imported as React components via `vite-plugin-svgr` (configured for all `*.svg` files).
+- `* { position: relative }` in `index.scss` is intentional — it enables the z-index stacking context used by `App.scss` for page layering.
+
+**Hooks:**
+- `useDesktopLayout` — uses `window.matchMedia` to detect the desktop breakpoint (576px)
+- `useActivePage` — tracks which page section is visible via IntersectionObserver (threshold differs by breakpoint)
+- `useInView` — one-shot IntersectionObserver for triggering fade-in animations (disconnects after first trigger)
+- `useStickAfterScroll` — calculates and sets `--sticky-top` CSS custom property for sticky header positioning
 
 **Styling:**
 - SCSS with BEM naming convention
 - Shared variables in `src/styles/variables.scss`, typography/responsive mixins in `src/styles/mixins.scss`
 - Desktop breakpoint: `$breakpoint-sm: 576px` — use the `media-desktop` mixin for responsive styles
-- Typography mixins: `typo-hero`, `typo-h1`, `typo-h2`, `typo-p`
+- Typography mixins: `typo-h1`, `typo-h2`, `typo-label`, `typo-p`
 - Fonts: Playfair Display (headings), Libre Franklin (body)
 
 ## Deployment

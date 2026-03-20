@@ -15,7 +15,6 @@
   &__nav {
     display: flex;
     gap: 72px;
-    padding-bottom: 18px;
     padding-left: 72px;
     padding-top: 48px;
 
@@ -36,6 +35,15 @@
         color: $color-gold;
       }
     }
+  }
+
+  &__burger {
+    transition: opacity .3s ease-out;
+    opacity: 0;
+  }
+
+  &--visible &__burger {
+    opacity: 1;
   }
 
   &--visible &__nav-item {

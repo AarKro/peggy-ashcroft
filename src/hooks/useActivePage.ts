@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import type { Page } from '../components/page/Page';
+import { useDesktopLayout } from './useDesktopLayout';
 
 const pages: Page[] = ['Title', 'Life', 'Works', 'Awards'];
 
 export const useActivePage = (): Page => {
   const [activePage, setActivePage] = useState<Page>('Title');
+  const isDesktop = useDesktopLayout();
 
   useEffect(() => {
     const visiblePages = new Set<Page>();
@@ -28,7 +30,7 @@ export const useActivePage = (): Page => {
           }
         }
       },
-      { threshold: 0.3 }
+      { threshold: isDesktop ? 0.3 : 0.1 }
     );
 
     pages.forEach((page) => {
@@ -37,7 +39,7 @@ export const useActivePage = (): Page => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [isDesktop]);
 
   return activePage;
 };
