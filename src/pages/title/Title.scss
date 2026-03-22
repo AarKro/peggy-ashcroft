@@ -1,6 +1,37 @@
 @use 'sass:color';
 @use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as *;
 
 #Title {
   background: linear-gradient(to bottom, $color-apre-ski, color.mix($color-ivory, $color-apre-ski, 25%));
+}
+
+.title {
+  &__tracks {
+    overflow: hidden;
+    margin-left: -28px;
+    margin-right: -28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    @include media-desktop {
+      margin-left: -72px;
+      margin-right: -72px;
+      gap: 16px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+
+    > .image-track {
+      height: calc((100vh - 5 * 12px) / 4);
+
+      @include media-desktop {
+        height: calc((100vh - 5 * 16px) / 4);
+      }
+    }
+  }
 }
