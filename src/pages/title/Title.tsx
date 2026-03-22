@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
 import { Page, type Page as PageType } from '../../components/page/Page';
 import { ImageTrack } from '../../components/image-track/ImageTrack';
 import peggy1 from '../../assets/images/peggy_1.jpg';
@@ -32,6 +32,13 @@ const tracks: { images: string[]; speed: number; reverse: boolean }[] = [
 type Props = { activePage: PageType };
 
 export const Title: FC<Props> = ({ activePage }) => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const id = setTimeout(() => setVisible(true), 300);
+    return () => clearTimeout(id);
+  }, []);
+
   return (
     <Page page='Title' activePage={activePage}>
       <div className="title__tracks" aria-hidden="true">
@@ -44,6 +51,10 @@ export const Title: FC<Props> = ({ activePage }) => {
           />
         ))}
       </div>
+      <h1 className={`title__heading${visible ? ' title__heading--visible' : ''}`}>
+        <span className="title__dame">Dame</span>
+        Peggy Ashcroft
+      </h1>
     </Page>
   );
 };
