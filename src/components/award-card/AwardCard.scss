@@ -67,34 +67,8 @@
     flex: 1;
   }
 
-  &__category {
-    @include typo-label;
-    color: $color-gold;
-    opacity: 0.75;
-    margin-bottom: 8px;
-    display: block;
-  }
-
   &__name {
     line-height: 1.2;
-    margin-bottom: 10px;
-  }
-
-  &__years {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  &__year-tag {
-    @include typo-p;
-    font-style: italic;
-    font-size: 0.8125rem;
-    color: rgba($color-ivory, 0.7);
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 2px;
-    padding: 2px 9px;
-    letter-spacing: 0.03em;
   }
 
   &__detail {

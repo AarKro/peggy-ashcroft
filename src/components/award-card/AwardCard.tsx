@@ -9,15 +9,13 @@ type AwardEntry = {
 
 type Props = {
   count: number;
-  category: string;
   name: string;
-  years?: string[];
   detail?: string;
   wide?: boolean;
   entries?: AwardEntry[];
 };
 
-export const AwardCard: FC<Props> = ({ count, category, name, years, detail, wide, entries }) => {
+export const AwardCard: FC<Props> = ({ count, name, detail, wide, entries }) => {
   const { ref, isVisible } = useInView();
 
   const classes = [
@@ -35,13 +33,7 @@ export const AwardCard: FC<Props> = ({ count, category, name, years, detail, wid
         </div>
         <div className='award-card__divider' />
         <div className='award-card__info'>
-          <span className='award-card__category'>{category}</span>
           <h2 className='award-card__name'>{name}</h2>
-          {years && (
-            <div className='award-card__years'>
-              {years.map(y => <span key={y} className='award-card__year-tag'>{y}</span>)}
-            </div>
-          )}
           {detail && <p className='award-card__detail'>{detail}</p>}
         </div>
         {entries && (
