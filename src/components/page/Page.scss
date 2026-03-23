@@ -1,4 +1,5 @@
 @use '../../styles/mixins.scss' as *;
+@use '../../styles/variables.scss' as *;
 
 .page {
   min-height: 100vh;
@@ -12,5 +13,11 @@
 
   @include media-desktop {
     padding: 0 72px;
+  }
+
+  &:not(#Title) {
+    max-width: $breakpoint-lg;
+    margin-inline: auto;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
   }
 }
