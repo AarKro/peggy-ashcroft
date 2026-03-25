@@ -13,6 +13,7 @@ import peggy9 from '../../assets/images/peggy_9.jpg';
 import peggy10 from '../../assets/images/peggy_10.webp';
 import peggy11 from '../../assets/images/peggy_11.webp';
 import peggy12 from '../../assets/images/peggy_12.webp';
+import ChevronDown from '../../assets/icons/chevron-down.svg';
 import './Title.scss';
 
 const allImages = [peggy1, peggy2, peggy3, peggy4, peggy5, peggy6, peggy7, peggy8, peggy9, peggy10, peggy11, peggy12];
@@ -59,6 +60,9 @@ export const Title: FC<Props> = ({ activePage }) => {
         <span className="title__dame">Dame</span>
         Peggy Ashcroft
       </h1>
+      <div className={`title__scroll-hint${visible ? ' title__scroll-hint--visible' : ''}`} aria-hidden="true">
+        <ChevronDown />
+      </div>
     </Page>
   );
 };
