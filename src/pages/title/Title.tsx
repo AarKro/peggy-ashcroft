@@ -9,9 +9,13 @@ import peggy5 from '../../assets/images/peggy_5.jpg';
 import peggy6 from '../../assets/images/peggy_6.jpg';
 import peggy7 from '../../assets/images/peggy_7.webp';
 import peggy8 from '../../assets/images/peggy_8.webp';
+import peggy9 from '../../assets/images/peggy_9.jpg';
+import peggy10 from '../../assets/images/peggy_10.webp';
+import peggy11 from '../../assets/images/peggy_11.webp';
+import peggy12 from '../../assets/images/peggy_12.webp';
 import './Title.scss';
 
-const allImages = [peggy1, peggy2, peggy3, peggy4, peggy5, peggy6, peggy7, peggy8];
+const allImages = [peggy1, peggy2, peggy3, peggy4, peggy5, peggy6, peggy7, peggy8, peggy9, peggy10, peggy11, peggy12];
 
 const shuffle = <T,>(arr: T[]): T[] => {
   const copy = [...arr];

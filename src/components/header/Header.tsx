@@ -57,6 +57,8 @@ export const Header: FC<Props> = ({ page, activePage }) => {
 
   // align section with viewport top when tabbing into a nav item
   const handleNavFocus = (e: FocusEvent<HTMLElement>) => {
+    const focused = e.target as HTMLElement;
+    if (!focused.matches(':focus-visible')) return;
     const section = e.currentTarget.closest('section');
     if (!section) return;
     const target = getSectionTop(section as HTMLElement);

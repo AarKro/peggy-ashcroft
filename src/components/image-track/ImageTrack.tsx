@@ -36,7 +36,7 @@ export const ImageTrack: FC<Props> = ({
     let lastTime = performance.now();
 
     const tick = (now: number) => {
-      const dt = (now - lastTime) / 1000;
+      const dt = Math.min((now - lastTime) / 1000, 0.1);
       lastTime = now;
 
       offset += dir * speed * dt;
